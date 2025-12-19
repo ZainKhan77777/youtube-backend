@@ -16,4 +16,11 @@ app.get("/", (req, res) => {
     res.send("Hello World");
 });
 
+// routes import 
+import userRoute from "./routes/user.route.js";
+
+// routes declaration
+app.use("/api/v1/user", userRoute);
+
+
 export default app;
