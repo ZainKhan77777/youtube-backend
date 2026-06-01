@@ -2,33 +2,24 @@
 // import { DB_NAME } from "./constants";
 // import express from "express";
 
-
 import connectDB from "./db/index.js";
 import dotenv from "dotenv";
-dotenv.config({ path: "./env" });
+dotenv.config({ path: ".env" });
 import app from "./app.js";
 connectDB()
-.then(() => {
+  .then(() => {
     app.on("error", (error) => {
-        console.log("Error: ", error);
-        throw error;
+      console.log("Error: ", error);
+      throw error;
     });
     app.listen(process.env.PORT || 8000, () => {
-        console.log(`App is listening on port ${process.env.PORT}`);
+      console.log(`App is listening on port ${process.env.PORT}`);
     });
-})
-.catch((error) => {
+  })
+  .catch((error) => {
     console.log("Mongo db connection FAILED", error);
     process.exit(1);
-});
-
-
-
-
-
-
-
-
+  });
 
 // (async () => {
 //     try {
